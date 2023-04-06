@@ -30,7 +30,7 @@
         floatval($b); // now $b type is float 
         echo $a + $b . '<br>'; // = 1 
 
-        define(MY_AGE, 21); //make constant
+        define('MY_AGE', 21); //make constant
         echo MY_AGE . '<br>'; //call const MY_AGE
         echo "TheEnd";
 
