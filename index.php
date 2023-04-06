@@ -8,37 +8,34 @@
 </head>
 <body>
     <?php
-        echo "<h1>Vsriables</h1>";
+    $x = 10;
+    $y = 20;
 
-        $num = 5; //type: int
-        $num2 = -0.45; //type: float (floating point number)
-        $str = 'Variable: '; //type: string
-        $str2 = ' Variable 2: '; //type: string
-        $bool = true; //type: boolean
+    echo $x + $y . '<br>';
+    echo $x - $y . '<br>';
+    echo $x * $y . '<br>';
+    echo $x / $y . '<br>';
+    echo $x % $y . '<br>'; 
 
-        echo $str .
-        $num .
-        '<br>' .
-        $str2 .
-        $num2 .
-        '<br>';
-;
+    $x += 10; // === $x = $x + 10;
+    $x -= 10; // === $x = $x - 10;
+    $x++; // === $x += 1;
+    $x--; // === $x -= 1;
 
-        $a = 0.5; // float
-        $b = '0.5'; // string
+    // native php math constans
+    echo M_PI . '<br>'; // === 3.1415926535898
+    echo M_E . '<br>'; // === 2.718281828459
 
-        floatval($b); // now $b type is float 
-        echo $a + $b . '<br>'; // = 1 
-
-        define('MY_AGE', 21); //make constant
-        echo MY_AGE . '<br>'; //call const MY_AGE
-        echo "TheEnd";
-
-        /*
-        variables are not strongly typed,
-        which is considered minuses of php.
-        gotta keep that in mind
-        */
+    // native php math functions
+    echo abs(22) . '<br>'; // |22| === 22
+    echo abs(-22) . '<br>'; // |-22| === 22
+    echo ceil(3.1) . '<br>'; // === 4 (round up)
+    echo floor(3.9) . '<br>'; // === 3 (round down)
+    echo round(3.9) . '<br>'; // === 4 
+    echo round(3.1) . '<br>'; // === 3 
+    echo mt_rand(0, 500) . '<br>'; // random num 0 - 500 
+    echo min(1, 2, 3, 4, 5, 6, 7, 8) . '<br>'; // === 1
+    echo max(1, 2, 3, 4, 5, 6, 7, 8) . '<br>'; // === 8
 
     ?>
 </body>
