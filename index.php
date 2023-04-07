@@ -8,22 +8,37 @@
 </head>
 <body>
     <?php
-        $x = 13;
 
-        switch ($x) {
-            case 10:
-               echo "Var: 10";
-                break;
-            case 15:
-                echo "Var: 15";
-                break;
-            case 13:
-                echo "Var: 13";
-                break;
-            default:
-                echo "Var: ???";               
-                break;
-        }
+//One-dimensional arrays
+        $numArr = array(4, 2, 3, 7, 8, -2);
+
+        $numArr[0] = 33;
+        echo $numArr[0] . '<br>';
+
+        echo max($numArr) . '<br>';
+        echo min($numArr) . '<br>';
+
+        $arr = [1, 2, 0.3, 'string', [1, 5]];
+
+        echo $arr[4] . '<br>';
+
+        array_push($arr, 4); //add subject in the end of current array
+        echo $arr[5] . '<br>';
+
+//Associative arrays        
+        $list = [3 => 14, "age" => 21, "name" => "Roman", "hooby" => "code"]; //like obj in js
+        echo $list['name'] . '<br>';
+        echo $list[3] . '<br>';
+
+//Multidimensional arrays
+        $matrix = [
+            [1, 3.3, 7],
+            ['srt', "name" => "Bob"],
+            [true]
+        ];
+
+        echo $matrix[0][1] . '<br>';
+
     ?>
 </body>
 </html>
