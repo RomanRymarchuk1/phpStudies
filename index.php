@@ -8,66 +8,79 @@
 </head>
 <body>
     <?php
-        //cycle for
+    //    function info($text) {
+    //     echo "Info $text <br>";
+    //    }
 
-        // for($i = 0; $i < 10; $i++){
-        //     echo "<p>$i</p>" . "<br>";
-        // }
+    //    info('text');
+    //    info('info');
+    //    info(31);
 
-        //cycle while
+    //    function math($x, $y) {
+    //     $result = $x + $y;
+    //     echo "$result <br>";
+    //     return $result;
+    //    }
 
-        // $i = 0;
-        // while($i < 10) {
-        //     echo "<p>$i</p>" . "<br>";
-        //     $i++;
-        // }
+    //    info(math(3, 6))
 
-        //cycle do while
+//______________________________________________________________________________
 
-        // $i = 10;
-        // do {
-        //     echo "<p>$i</p>" . "<br>";
-        //     $i++;
-        // } while ($i < 10)
+// function summary ($arr) {
+//     $sum = 0;
 
-//________________________________________________________________________________________________________________
+//     foreach($arr as $value){
+//         $sum += $value;
+//     };
+//     return $sum;
 
-        // for ($el = 100; $el > 10 ; $el /= 2) { 
-        //     if($el < 15)
-        //         break; //exit
+// };
 
-        //     if($el % 2 == 0)
-        //         continue; //skips an iteration
+// $list = [3, 6, 9];
 
-        //     echo "<p>$el</p>" . "<br>";
-        // }
+// echo summary($list)
 
-//________________________________________________________________________________________________________________
+//______________________________________________________________________________
+    
+// function info () {
+//     $x = 5;
+// }
 
-        // $list = [1, 2, 3, 4, 5, 6];
+// function info1 () {
+//     global $x; //use global var, regardless of the location
+//     $x = 5;//overwrites global variable
+// }
 
-        // for ($i = 0; $i < count($list); $i++) { 
-        //         echo "<p>Element $i: $list[$i]</p>" . "<br>";
+// $x =10;
 
-        // }
+// echo "<p>$x</p>" . '<br>' ;
+// info();
+// echo "<p>$x</p>" . '<br>' ;
+// info1();
+// echo "<p>$x</p>" . '<br>' ;
 
-//________________________________________________________________________________________________________________
+//______________________________________________________________________________
 
-        $arr = [
-            "name" => "Roman",
-            "age" => 21,
-            "hobby" => "Code"
-        ];
+function counter() {
+    $count = 0;
+    $count++;
+    echo "<p>$count</p>" . "<br>";
+} 
 
-        $list = [1, 2, 3, 4, 5, 6];
+function staticCounter() {
+    static $count = 0; //the program remembers changes in a local variable
+    $count++;
+    echo "<p>$count</p>" . "<br>";
+} 
+staticCounter(); // === 1
+staticCounter(); // === 2
+staticCounter(); // === 3
 
-        foreach ($list as $value){
-            echo "<p>$value</p>" . "<br>";
-        }
+echo "_______________________________________________________________________________________________________________________________________ <br>";
 
-        foreach ($arr as $item => $value){
-            echo "<p>$item: $value</p>" . "<br>";
-        };
+counter(); // === 1
+counter(); // === 1
+counter(); // === 1
 
     ?>
 </body>
