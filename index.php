@@ -8,36 +8,66 @@
 </head>
 <body>
     <?php
+        //cycle for
 
-//One-dimensional arrays
-        $numArr = array(4, 2, 3, 7, 8, -2);
+        // for($i = 0; $i < 10; $i++){
+        //     echo "<p>$i</p>" . "<br>";
+        // }
 
-        $numArr[0] = 33;
-        echo $numArr[0] . '<br>';
+        //cycle while
 
-        echo max($numArr) . '<br>';
-        echo min($numArr) . '<br>';
+        // $i = 0;
+        // while($i < 10) {
+        //     echo "<p>$i</p>" . "<br>";
+        //     $i++;
+        // }
 
-        $arr = [1, 2, 0.3, 'string', [1, 5]];
+        //cycle do while
 
-        echo $arr[4] . '<br>';
+        // $i = 10;
+        // do {
+        //     echo "<p>$i</p>" . "<br>";
+        //     $i++;
+        // } while ($i < 10)
 
-        array_push($arr, 4); //add subject in the end of current array
-        echo $arr[5] . '<br>';
+//________________________________________________________________________________________________________________
 
-//Associative arrays        
-        $list = [3 => 14, "age" => 21, "name" => "Roman", "hooby" => "code"]; //like obj in js
-        echo $list['name'] . '<br>';
-        echo $list[3] . '<br>';
+        // for ($el = 100; $el > 10 ; $el /= 2) { 
+        //     if($el < 15)
+        //         break; //exit
 
-//Multidimensional arrays
-        $matrix = [
-            [1, 3.3, 7],
-            ['srt', "name" => "Bob"],
-            [true]
+        //     if($el % 2 == 0)
+        //         continue; //skips an iteration
+
+        //     echo "<p>$el</p>" . "<br>";
+        // }
+
+//________________________________________________________________________________________________________________
+
+        // $list = [1, 2, 3, 4, 5, 6];
+
+        // for ($i = 0; $i < count($list); $i++) { 
+        //         echo "<p>Element $i: $list[$i]</p>" . "<br>";
+
+        // }
+
+//________________________________________________________________________________________________________________
+
+        $arr = [
+            "name" => "Roman",
+            "age" => 21,
+            "hobby" => "Code"
         ];
 
-        echo $matrix[0][1] . '<br>';
+        $list = [1, 2, 3, 4, 5, 6];
+
+        foreach ($list as $value){
+            echo "<p>$value</p>" . "<br>";
+        }
+
+        foreach ($arr as $item => $value){
+            echo "<p>$item: $value</p>" . "<br>";
+        };
 
     ?>
 </body>
