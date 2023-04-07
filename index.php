@@ -8,29 +8,22 @@
 </head>
 <body>
     <?php
-        $a = 2; 
-        $isBro = true;
+        $x = 13;
 
-        // if($a === 1) {
-        //     echo 'hi';
-        // } else {
-        //     echo 'bay';
-        // };
-
-/*
- if there is only one line in the operator,
- then you can not use {}
-*/
-
-        if($a === 1)   
-            echo 'hi';
-        else if($a == 2 && $isBro) // and
-            echo 'brooooo';
-        else if($a == 3 || $isBro) // or
-            echo 'brooooo';
-        else 
-            echo 'bay';
-        
+        switch ($x) {
+            case 10:
+               echo "Var: 10";
+                break;
+            case 15:
+                echo "Var: 15";
+                break;
+            case 13:
+                echo "Var: 13";
+                break;
+            default:
+                echo "Var: ???";               
+                break;
+        }
     ?>
 </body>
 </html>
