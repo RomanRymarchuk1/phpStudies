@@ -4,64 +4,25 @@
 ?>
     <h1>Home</h1>
 <?php
+    // phpinfo(); //ALL info about php, plugins, extentions and other...
 
-    $file = fopen("text.txt", "w"); //file open to rewrite or write somesing new
+    // echo '<pre>'; // All SERVER information
+    // print_r($_SERVER);
+    // echo '</pre>';
 
-    fwrite($file, "Exemple\nHello"); // write to file
+    echo $_SERVER['HTTPS'] . "<br>"; // secure connection check
+    echo $_SERVER['HTTP_HOST'] . "<br>"; //return domain name
+    echo $_SERVER['REQUEST_URI'] . "<br>"; // return all info after domain
+    echo $_SERVER['HTTP_USER_AGENT'] . "<br>"; //return users OS name
 
-    fclose($file); //!!file MUST by closed!!
+    if($_GET['source'] != '' ){
+        $link = explode('?source=', $_SERVER['REQUEST_URI']);
+        $redirect = "http://$_SERVER[HTTP_HOST]$link[0]";
 
-    //OR
-
-    file_put_contents("text_2.txt", "Hello text_2\n"); // the same func in 1 str
-
-//---------------------------------------------------------------------------------------------------------------------
-
-    $file_1 = fopen("text_1.txt", "a"); //file open to append
-
-    fwrite($file_1, "\nExemple\nHello"); // write to file 
-
-    fclose($file_1); //!!file MUST by closed!!
-
-//---------------------------------------------------------------------------------------------------------------------
-
-    $fileName = 'text.txt';
-
-    $file_2 = fopen($fileName, 'r'); // file open for reading
-
-    $content = fread($file_2, filesize($fileName));
-
-    fclose($file_2); //!!file MUST by closed!!
-
-    echo $content . '<br>';
-
-    //OR
-
-    echo file_get_contents($fileName) . '<br>';// the same func in 1 str
-
-//---------------------------------------------------------------------------------------------------------------------
-
-    //checks for the existence of a file by its name
-    echo file_exists('text.txt') . '<br>'; //1
-    echo file_exists('t.txt') . '<br>'; //''
-
-    //use to rnemae file
-    //rename('text_1.txt', 'text___1.txt');
-
-    //use to delete file
-    // unlink('text.txt');
-
-    //show the path to current file
-    echo __FILE__ . "<br>";
-
-    //show the access rights 
-    echo fileperms(__FILE__) . "<br>";
-
-    //change the access rights 
-    chmod(__FILE__, 0777);
-
-
-    
+        header("HTTP/1.1 301: Moved Permanently");
+        header("Location: $redirect");
+        exit();
+    }
 
     require_once("./blocks/footer.php");
 ?>
