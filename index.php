@@ -8,37 +8,21 @@
 </head>
 <body>
     <?php
-        echo "<h1>Vsriables</h1>";
 
-        $num = 5; //type: int
-        $num2 = -0.45; //type: float (floating point number)
-        $str = 'Variable: '; //type: string
-        $str2 = ' Variable 2: '; //type: string
-        $bool = true; //type: boolean
+    /*
+    Разработайте программу, которая из чисел 20 .. 45 
+    находила те, которые делятся на 5 и найдите сумму
+     этих чисел.
+    */
 
-        echo $str .
-        $num .
-        '<br>' .
-        $str2 .
-        $num2 .
-        '<br>';
-;
+    $res;
 
-        $a = 0.5; // float
-        $b = '0.5'; // string
+    for($i = 20; $i <= 45; $i++ ){
+        if(fmod($i, 5) == 0)
+            $res += $i;
+    }
 
-        floatval($b); // now $b type is float 
-        echo $a + $b . '<br>'; // = 1 
-
-        define('MY_AGE', 21); //make constant
-        echo MY_AGE . '<br>'; //call const MY_AGE
-        echo "TheEnd";
-
-        /*
-        variables are not strongly typed,
-        which is considered minuses of php.
-        gotta keep that in mind
-        */
+    echo $res;
 
     ?>
 </body>
