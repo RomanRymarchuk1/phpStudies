@@ -10,40 +10,29 @@
     <?php
 
     /*
-    Ваше задание — создать массив, наполнить его
-    случайными значениями (можно использовать функцию
-    rand), найти максимальное и минимальное значение
-    массива и поменять их местами.
+    Вам нужно разработать программу, которая
+    считала бы количество вхождений какой-нибуть
+    выбранной вами цифры в выбранном вами числе.
+    Например: цифра 5 в числе 442158755745 встречается
+    4 раза
     */
-    $arr = [];
+    
+    $num = 89473286432982; 
 
-    for($i = 0; $i < 100; $i++){
-        array_push($arr, rand(1, 333));
-    }
+    function occurrences ($target, $desired) {
+        $num_arr = str_split($target);
+        $res = 0;
 
-    // echo "<pre>";
-    // print_r($arr);
-    // echo "</pre>";
+        foreach($num_arr as $value){
+            if($value == $desired)
+                $res++;
+        };
 
-    $min = min($arr);
-    $max = max($arr);
+        return $res;
 
-    $min_index = array_search($min, $arr);
-    $max_index = array_search($max, $arr);
+    };
 
-    echo "Min num: $min, Index: $min_index" . "<br>";
-    echo "Max num: $max, Index: $max_index" . "<br>";
-
-    echo "_____________________________________________" . "<br>";
-
-    $arr[$min_index] = $max;
-    $arr[$max_index] = $min;
-
-    $min_index = array_search($min, $arr);
-    $max_index = array_search($max, $arr);
-
-    echo "Min num: $min, Index: $min_index" . "<br>";
-    echo "Max num: $max, Index: $max_index" . "<br>";
+    echo occurrences($num, 4);
 
     ?>
 </body>
