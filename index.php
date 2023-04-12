@@ -10,21 +10,40 @@
     <?php
 
     /*
-    Вам нужно разработать программу, которая считала
-    бы сумму цифр числа введенного пользователем.
-    Например: есть число 123, то программа должна 
-    вычислить сумму цифр 1, 2, 3, т. е. 6.
+    Ваше задание — создать массив, наполнить его
+    случайными значениями (можно использовать функцию
+    rand), найти максимальное и минимальное значение
+    массива и поменять их местами.
     */
+    $arr = [];
 
-    $num = 12345;
-    $num_array = str_split($num);
-    $res;
-
-    foreach($num_array as $value){
-        $res += $value;
+    for($i = 0; $i < 100; $i++){
+        array_push($arr, rand(1, 333));
     }
 
-    echo $res;
+    // echo "<pre>";
+    // print_r($arr);
+    // echo "</pre>";
+
+    $min = min($arr);
+    $max = max($arr);
+
+    $min_index = array_search($min, $arr);
+    $max_index = array_search($max, $arr);
+
+    echo "Min num: $min, Index: $min_index" . "<br>";
+    echo "Max num: $max, Index: $max_index" . "<br>";
+
+    echo "_____________________________________________" . "<br>";
+
+    $arr[$min_index] = $max;
+    $arr[$max_index] = $min;
+
+    $min_index = array_search($min, $arr);
+    $max_index = array_search($max, $arr);
+
+    echo "Min num: $min, Index: $min_index" . "<br>";
+    echo "Max num: $max, Index: $max_index" . "<br>";
 
     ?>
 </body>
