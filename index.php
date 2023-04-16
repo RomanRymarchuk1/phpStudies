@@ -9,16 +9,33 @@
 <body>
     <h1>Hello PHP + MySQL</h1>
     <?php 
+        function printRes($res){
+            echo "Nums: ". $res->num_rows. "<br>";
+            if($res->num_rows != 0){
+                while ($row = $res->fetch_assoc()) {
+                    echo "ID: ". $row["_id"]. "<br>";
+                    echo "NAME: ". $row["name"]. "<br>";
+                    echo "BIO: ". $row["bio"]. "<br>";
+                }
+            }
+    
+        }
+
         $mysql = new mysqli("localhost", "root", "root", "php-mysql-test"); //create an instance of the class, pass the necessary data about the database
         $mysql->query("SET NAMES 'utf8'"); // set encryption
 
-        for($i = 0; $i < 5; $i++){
-            $name = "Bob #  $i";
-            $mysql->query("INSERT INTO `users` (`name`, `bio`) VALUES('$name', 'TEEEEXT')");
-        }
+        $res = $mysql->query("SELECT * FROM `users` ");
+        printRes($res);
 
-        $mysql->query("UPDATE `users` SET `bio` = 'textTEXTtext' WHERE `_id` > 3");
-        $mysql->query("DELETE FROM `users` WHERE `_id` = 5 OR `_id` = 6 AND `name`  = 'Bob #  4'");
+        echo "<hr>";
+
+        $res = $mysql->query("SELECT `_id`, `name` FROM `users` ");
+        printRes($res);
+
+        echo "<hr>";
+
+        $res = $mysql->query("SELECT * FROM `users` WHERE `_id` < 10 ORDER BY `_id` DESC");
+        printRes($res);
 
         $mysql->close(); // close is a //!!MUST!!
     ?>
