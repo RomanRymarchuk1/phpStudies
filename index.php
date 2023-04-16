@@ -4,42 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PHP + MySQL</title>
 </head>
 <body>
-    <?php
-        echo "<h1>Vsriables</h1>";
+    <h1>Hello PHP + MySQL</h1>
+    <?php 
+        $mysql = new mysqli("localhost", "root", "root", "php-mysql-test"); //create an instance of the class, pass the necessary data about the database
+        $mysql->query("SET NAMES 'utf8'"); // set encryption
 
-        $num = 5; //type: int
-        $num2 = -0.45; //type: float (floating point number)
-        $str = 'Variable: '; //type: string
-        $str2 = ' Variable 2: '; //type: string
-        $bool = true; //type: boolean
+        if($mysql->connect_error){
+            echo "Error Numm: ". $mysql->connect_errno . "<br>";
+            echo "Error: ". $mysql->connect_error;
+        } else {
+            echo "Host Info: " . $mysql->host_info;
+            $mysql->query("DROP TABLE `new-test`");
+            $mysql->query("CREATE TABLE `users` (
+                _id INT(11) NOT NULL,
+                name VARCHAR(50) NOT NULL,
+                bio TEXT(50) NOT NULL,
+                PRIMARY  KEY(_id)
+            )");
+            
+        }
 
-        echo $str .
-        $num .
-        '<br>' .
-        $str2 .
-        $num2 .
-        '<br>';
-;
-
-        $a = 0.5; // float
-        $b = '0.5'; // string
-
-        floatval($b); // now $b type is float 
-        echo $a + $b . '<br>'; // = 1 
-
-        define('MY_AGE', 21); //make constant
-        echo MY_AGE . '<br>'; //call const MY_AGE
-        echo "TheEnd";
-
-        /*
-        variables are not strongly typed,
-        which is considered minuses of php.
-        gotta keep that in mind
-        */
-
+        $mysql->close(); // close is a //!!MUST!!
     ?>
 </body>
 </html>
