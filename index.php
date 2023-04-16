@@ -12,20 +12,13 @@
         $mysql = new mysqli("localhost", "root", "root", "php-mysql-test"); //create an instance of the class, pass the necessary data about the database
         $mysql->query("SET NAMES 'utf8'"); // set encryption
 
-        if($mysql->connect_error){
-            echo "Error Numm: ". $mysql->connect_errno . "<br>";
-            echo "Error: ". $mysql->connect_error;
-        } else {
-            echo "Host Info: " . $mysql->host_info;
-            $mysql->query("DROP TABLE `new-test`");
-            $mysql->query("CREATE TABLE `users` (
-                _id INT(11) NOT NULL,
-                name VARCHAR(50) NOT NULL,
-                bio TEXT(50) NOT NULL,
-                PRIMARY  KEY(_id)
-            )");
-            
+        for($i = 0; $i < 5; $i++){
+            $name = "Bob #  $i";
+            $mysql->query("INSERT INTO `users` (`name`, `bio`) VALUES('$name', 'TEEEEXT')");
         }
+
+        $mysql->query("UPDATE `users` SET `bio` = 'textTEXTtext' WHERE `_id` > 3");
+        $mysql->query("DELETE FROM `users` WHERE `_id` = 5 OR `_id` = 6 AND `name`  = 'Bob #  4'");
 
         $mysql->close(); // close is a //!!MUST!!
     ?>
